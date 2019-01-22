@@ -4,7 +4,7 @@ const router = express.Router();
 const product_controller = require('../controllers/product.controller');
 
 // simple url check
-router.get('/test', product_controller.test);
+router.get('/products/test', product_controller.test);
 // all endpoints
 router.get('/products/:id', product_controller.product_details);
 router.post('/products', product_controller.product_create);

@@ -4,6 +4,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 
 var product = require('./routes/product.route'); // Imports routes for the products
+var picture = require('./routes/picture.route'); // Imports routes for the pictures
 var app = express();
 
 // Set up mongoose connection
@@ -26,7 +27,8 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-app.use('/', product);
+app.use('/api/v1', picture);
+app.use('/api/v1', product);
 
 var port = 3001;
 
