@@ -1,5 +1,3 @@
-// app.js
-
 var express = require('express');
 var bodyParser = require('body-parser');
 
@@ -21,12 +19,13 @@ mongoose.connect(mongoDB, {
     console.log('cannot connect database', err)
     process.exit
 })
+
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/api/v1', picture);
 app.use('/api/v1', product);
 

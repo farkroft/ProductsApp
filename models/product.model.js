@@ -10,7 +10,10 @@ let ProductSchema = new Schema({
     price: {
         type: Number,
         required: true
-    },
+    }
+},
+{
+    timestamps: true
 });
 
 // Export the model

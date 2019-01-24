@@ -1,38 +1,32 @@
-const Picture = require('../models/picture.model')
-const cloudinary = require('cloudinary')
-const multer = require('multer')
-const cloudinaryStorage = require('multer-storage-cloudinary')
+var cloudinary = require('cloudinary')
+var Picture = require('../models/picture.model')
 
 cloudinary.config({
-    cloud_name: process.env.CLOUD_NAME,
-    api_key: process.env.API_KEY,
-    api_secret: process.env.API_SECRET
+    cloud_name: 'dbde9il12',
+    api_key: '216564982351887',
+    api_secret: 'ZIpvIymcQP6DhcklBX32Zpamdb0'
 })
 
-const storage = cloudinaryStorage({
-    cloudinary: cloudinary,
-    folder: "demo",
-    allowedFormats: ["jpg", "png"],
-    transformation: [{ width: 500, height: 500, crop: "limit" }]
-})
+module.exports = {
+    upload: function (req, res, next) {
+        console.log(req.files.url.path);
+        cloudinary.uploader.upload(req.files.url.path, function (resp) {
 
-const parser = multer({ storage: storage })
-
-exports.test = function(req, res){
-    res.send('Greetings from picture controller')
-}
-
-exports.picture_create = function (req, res, next) {
-    let picture = new Picture(
-        {
-            url: req.body.url
-        }
-    )
-
-    picture.save(function (err) {
-        if (err) {
-            return next(err)
-        }
-        res.send(picture)
-    })
+            var picture = new Picture({
+                url: resp.url
+            }).save(function (err, response ){
+                if (err) return next(err)
+                res.json({
+                    error: false,
+                    result: response
+                })
+            })
+        })
+    },
+    get: function (req, res, next) {
+        Picture.find({}, function (err, result) {
+            if (err) return next(err)
+            res.json({picture:result})
+        })
+    }
 }
