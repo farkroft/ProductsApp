@@ -11,6 +11,7 @@ exports.product_create = function (req, res, next) {
         {
             name: req.body.name,
             price: req.body.price
+            // productType: req.body.productType
         }
     );
 

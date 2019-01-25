@@ -5,13 +5,16 @@ const Picture = require('./picture.model')
 let ProductSchema = new Schema({
     name: {
         type: String,
-        required: true,
+        // required: true,
         max: 100
     },
-    price: {
-        type: Number,
-        required: true
-    },
+    // price: {
+    //     type: Number
+    //     // required: true
+    // },
+    productType: {
+        type: String
+    }
     pictures: [
         {
             type: Schema.Types.ObjectId,

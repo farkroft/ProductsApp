@@ -26,23 +26,7 @@ module.exports = {
                             result: response
                         })
                     })
-                    // console.log(response)
                 })
-                // console.log(productOne.schema.obj.pictures)
-                // result.pictures.push()
-                
-                // console.log(picture)
-                // console.log(result)
-                // console.log(result.pictures)
-                // return result
-                // productOne.schema.obj.pictures.push()
-                // productOne.save(function (err, response) {
-                //     if (err) return next(err)
-                //     res.json({
-                //         error: false,
-                //         result: response
-                //     })
-                // })
             })
         })
     },
