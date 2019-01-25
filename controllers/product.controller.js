@@ -1,7 +1,7 @@
 const Product = require('../models/product.model');
 
 // test endpoint
-exports.test = function(req, res){
+exports.test = function(req, res) {
     res.send('Greetings from products controller')
 }
 
@@ -24,8 +24,8 @@ exports.product_create = function (req, res, next) {
 
 // find detail function
 exports.product_details = function (req, res, next) {
-    Product.findById(req.params.id, function(err, product) {
-        if(err) return next(err)
+    Product.findOne({_id: req.params.id}).populate('pictures').exec(function(err, product) {
+        if (err) return next (err)
         res.send(product)
     })
 }
@@ -48,7 +48,7 @@ exports.product_delete = function (req, res) {
 
 // get all function
 exports.product_getAll = (req, res) => {
-    Product.find(req.params.id)
+    Product.find(req.params.id).populate({path: 'Picture', select: '_id'})
     .then( products => {
         res.send(products)
     }).catch(err => {
