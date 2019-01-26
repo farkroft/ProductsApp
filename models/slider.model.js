@@ -5,7 +5,7 @@ let SliderSchema = new Schema({
     name: {
         type: String
     },
-    imageUrl: {
+    image: {
         type: String
     },
     urlPath: {
@@ -15,11 +15,17 @@ let SliderSchema = new Schema({
         type: Number
     },
     isActive: {
-        type: Boolean
+        type: Boolean,
+        default: true
     }
 },
 {
     timestamps: true
 })
+
+SliderSchema.methods.sortNumb = function() {
+    this.sortNumber++
+    return this.save()
+}
 
 module.exports = mongoose.model('Slider', SliderSchema)

@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 
 var product = require('./routes/product.route'); // Imports routes for the products
 var picture = require('./routes/picture.route'); // Imports routes for the pictures
+var slider = require('./routes/slider.route'); // Import router for sliders
 var app = express();
 
 // Set up mongoose connection
@@ -28,6 +29,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/api/v1', picture);
 app.use('/api/v1', product);
+app.use('/api/v1', slider)
 
 var port = 3001;
 
