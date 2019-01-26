@@ -10,8 +10,8 @@ let UserSchema = new Schema({
     },
     role: {
         type: String
-        // enum: ['admin', 'user'],
-        // default: 'user'
+        enum: ['admin', 'user'],
+        default: 'user'
     },
     lastLogin: {
         type: Date,

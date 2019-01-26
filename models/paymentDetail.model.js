@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 let PaymentDetailSchema = new Schema({
     paymentMethod: {
         type: String
-        // enum
+        enum: ['Kartu Kredit / Kartu Debit', 'Transfer Bank', 'Indomaret', 'Alfamart']
     },
     receipt: {
         type: Number

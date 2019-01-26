@@ -13,6 +13,5 @@ let PictureSchema = new Schema({
 }, {
     timestamps: true
 })
-// PictureSchema.methods.pro
 
 module.exports = mongoose.model('Picture', PictureSchema)
