@@ -8,5 +8,7 @@ const multipart = require('connect-multiparty')()
 router.get('/sliders', slider_controller.get)
 router.get('/sliders/:id', slider_controller.getOne)
 router.post('/sliders', multipart, slider_controller.upload)
+router.delete('/pictures/:id', slider_controller.destroy)
+router.put('/pictures/:id', slider_controller.update)
 
 module.exports = router;

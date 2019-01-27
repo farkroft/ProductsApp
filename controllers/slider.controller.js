@@ -38,7 +38,7 @@ module.exports = {
         })
     },
     getOne: function (req, res, next) {
-        Slider.findOne()
+        Slider.findOne({_id:req.params.id})
         .then( sliders => {
             res.send(sliders)
         }).catch( err => {
@@ -46,5 +46,25 @@ module.exports = {
                 message: err.message
             })
         })
+    },
+    update: function (req, res, next) {
+        Slider.findByIdAndUpdate({_id:req.params.id})
+        .then( sliders => {
+            res.send(sliders)
+        }).catch( err => {
+            res.status(404).send({
+                message: err.message
+            })
+        })
+    },
+    destroy: function (req, res, next) {
+        Slider.findOneAndDelete({_id:req.params.id})
+        .then( sliders => {
+            res.send(sliders)
+        }).catch( err => {
+            res.status(404).send({
+                message: err.message
+            })
+        }) 
     }
 }

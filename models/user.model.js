@@ -6,10 +6,11 @@ let UserSchema = new Schema({
         type: String
     },
     email: {
-        type: String
+        type: String,
+        unique: true
     },
     role: {
-        type: String
+        type: String,
         enum: ['admin', 'user'],
         default: 'user'
     },
@@ -21,5 +22,7 @@ let UserSchema = new Schema({
 {
     timestamps: true
 })
+
+mongoose.set('useCreateIndex', true)
 
 module.exports = mongoose.model('User', UserSchema)

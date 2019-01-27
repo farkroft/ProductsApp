@@ -46,5 +46,29 @@ module.exports = {
             // console.log(result.product.name)
             res.json(result)
         })
+    },
+    destroy: function (req, res, next) {
+        Picture.findOneAndDelete(req.params.id)
+        .then( message => {
+            res.send({
+                message: 'Picture deleted'
+            })
+        }).catch( err => {
+            res.status(404).send({
+                message: err.message
+            })
+        })
+    },
+    update: function (req, res, next) {
+        Picture.findByIdAndUpdate(req.params.id)
+        .then( results => {
+            res.send({
+                result: results
+            })
+        }).catch(err => {
+            res.status(404).send({
+                message: err.message
+            })
+        })
     }
 }

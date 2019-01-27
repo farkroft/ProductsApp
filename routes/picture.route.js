@@ -11,5 +11,7 @@ const multipart = require('connect-multiparty')()
 router.get('/pictures', picture_controller.get)
 router.get('/pictures/:id', picture_controller.getOne)
 router.post('/pictures', multipart, picture_controller.upload)
+router.delete('/pictures/:id', picture_controller.destroy)
+router.put('/pictures/:id', picture_controller.update)
 
 module.exports = router;
