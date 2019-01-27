@@ -60,7 +60,9 @@ module.exports = {
     destroy: function (req, res, next) {
         Slider.findOneAndDelete({_id:req.params.id})
         .then( sliders => {
-            res.send(sliders)
+            res.send({
+                message: 'Deleted Succesfully'
+            })
         }).catch( err => {
             res.status(404).send({
                 message: err.message
