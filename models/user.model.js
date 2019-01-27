@@ -18,7 +18,7 @@ let UserSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    userInvestorId: [
+    userInvestors: [
         {
             type: Schema.Types.ObjectId,
             ref: 'UserInvestor'

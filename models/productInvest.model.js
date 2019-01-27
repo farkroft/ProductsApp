@@ -17,7 +17,7 @@ let ProductInvestSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Product'
     },
-    userInvestorId: [
+    userInvestors: [
         {
             type: Schema.Types.ObjectId,
             ref: 'UserInvestor'

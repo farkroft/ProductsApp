@@ -14,9 +14,9 @@ module.exports = {
                     productInvestId: req.body.productInvestId
                 }).save(function (err, response) {
                     if (err) return next(err)
-                    results.push(response._id)
+                    results.userInvestors.push(response._id)
                     results.save()
-                    result.push(response._id)
+                    result.userInvestors.push(response._id)
                     result.save(function (err, userIn) {
                         if (err) return next(err)
                         res.status(200).send({

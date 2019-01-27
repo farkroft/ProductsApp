@@ -8,6 +8,7 @@ var slider = require('./routes/slider.route');
 var user = require('./routes/user.route');
 var productinvest = require('./routes/productInvest.route')
 var prodInvDet = require('./routes/productInvestDetail.route')
+var userInv = require('./routes/userInvestor.route')
 var app = express();
 
 // Set up mongoose connection
@@ -37,6 +38,7 @@ app.use('/api/v1', slider);
 app.use('/api/v1', user);
 app.use('/api/v1', productinvest);
 app.use('/api/v1', prodInvDet)
+app.use('/api/v1', userInv)
 
 var port = 3001;
 
