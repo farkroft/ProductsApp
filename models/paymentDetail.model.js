@@ -22,7 +22,8 @@ let PaymentDetailSchema = new Schema({
         type: String
     },
     isPaid: {
-        type: Boolean
+        type: Boolean,
+        default: false
     },
     userInvestorId: {
         type: Schema.Types.ObjectId,
