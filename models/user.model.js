@@ -17,7 +17,13 @@ let UserSchema = new Schema({
     lastLogin: {
         type: Date,
         default: Date.now
-    }
+    },
+    userInvestorId: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'UserInvestor'
+        }
+    ]
 },
 {
     timestamps: true

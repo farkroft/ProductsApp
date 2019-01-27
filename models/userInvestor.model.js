@@ -11,18 +11,14 @@ let UserInvestorSchema = new Schema({
     investYear: {
         type: Number
     },
-    userId: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'User'
-        }
-    ],
-    productInvestId: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'ProductInvest'
-        }
-    ]
+    userId: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    productInvestId: {
+        type: Schema.Types.ObjectId,
+        ref: 'ProductInvest'
+    }
 },
 {
     timestamps: true

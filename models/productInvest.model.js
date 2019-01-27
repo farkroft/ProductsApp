@@ -6,16 +6,23 @@ let ProductInvestSchema = new Schema({
         type: Number
     },
     lot: {
-        type: Number
+        type: Number,
+        default: 1
     },
     countView: {
-        type: Number
+        type: Number,
         default: 0
     },
     productId: {
         type: Schema.Types.ObjectId,
         ref: 'Product'
-    }
+    },
+    userInvestorId: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'UserInvestor'
+        }
+    ]
 },
 {
     timestamps: true
