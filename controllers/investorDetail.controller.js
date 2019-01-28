@@ -3,10 +3,13 @@ var InvestorDetail = require('../models/investorDetail.model')
 
 module.exports = {
     create: function (req, res, next) {
+        let cardTypeEnum = InvestorDetail.schema.path('cardType').enumValues
+        let incomeResourceEnum = InvestorDetail.schema.path('incomeResource').enumValues
+        let salaryRangeEnum = InvestorDetail.schema.path('salaryRange').enumValues
         let investordetail = new InvestorDetail({
-            cardType: req.body.cardType,
-            incomeResource: req.body.incomeResource,
-            salaryRange: req.body.salaryRange,
+            cardType: cardTypeEnum[req.body.cardType],
+            incomeResource: incomeResourceEnum[req.body.incomeResource],
+            salaryRange: salaryRangeEnum[req.body.salaryRange],
             identityCardNumber: req.body.identityCardNumber,
             address: req.body.address,
             phoneNumber: req.body.phoneNumber,

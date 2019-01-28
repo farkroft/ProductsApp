@@ -3,8 +3,9 @@ var PaymentDetail = require('../models/paymentDetail.model')
 
 module.exports = {
     create: function (req, res, next) {
+        let paymentMethodEnum = PaymentDetail.schema.path('paymentMethod').enumValues
         let paymentdetail = new PaymentDetail({
-            paymentMethod: req.body.paymentMethod,
+            paymentMethod: paymentMethodEnum[req.body.paymentMethod],
             receipt: req.body.receipt,
             cardNumber: req.body.cardNumber,
             cardHolderName: req.body.cardHolderName,

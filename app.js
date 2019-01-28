@@ -9,8 +9,8 @@ var user = require('./routes/user.route');
 var productinvest = require('./routes/productInvest.route')
 var prodInvDet = require('./routes/productInvestDetail.route')
 var userInv = require('./routes/userInvestor.route')
-var investDet = require('./controllers/investorDetail.controller')
-var payDet = require('./controllers/paymentDetail.controller')
+var investDet = require('./routes/investorDetail.route')
+var payDet = require('./routes/paymentDetail.route')
 var app = express();
 
 // Set up mongoose connection
@@ -41,8 +41,8 @@ app.use('/api/v1', user);
 app.use('/api/v1', productinvest);
 app.use('/api/v1', prodInvDet)
 app.use('/api/v1', userInv)
-// app.use('/api/v1', investDet)
-// app.use('/api/v1', payDet)
+app.use('/api/v1', investDet)
+app.use('/api/v1', payDet)
 
 var port = 3001;
 
