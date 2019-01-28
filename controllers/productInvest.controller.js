@@ -26,10 +26,7 @@ module.exports = {
         })
     },
     getOne: function (req, res, next) {
-        // console.log(countViews)
-        console.log(ProductInvest.findOne({_id:req.params.id}).schema.obj.countView)
-        let countViews = (ProductInvest.findOne({_id:req.params.id}).schema.obj.countView)
-        ProductInvest.findOneAndUpdate({_id: req.params.id}, {$inc: {countViews: 1}}, {new: true})
+        ProductInvest.findOneAndUpdate({_id: req.params.id}, {$inc: {countView: 1}}, {new: true})
         .then(prodInvests => {
             res.send(prodInvests)
         }).catch(err => {

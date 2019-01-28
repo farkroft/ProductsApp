@@ -7,4 +7,4 @@ router.get('/investordetail', investordetail_controller.index)
 router.get('/investordetail/:id', investordetail_controller.getOne)
 router.post('/investordetail', investordetail_controller.create)
 
-module.exports = router
+module.exports = router;

@@ -7,4 +7,4 @@ router.get('/userinvests', userinvestor_controller.getAll)
 router.get('/userinvests/:id', userinvestor_controller.getOne)
 router.post('/userinvests', userinvestor_controller.create)
 
-module.exports = router
+module.exports = router;
