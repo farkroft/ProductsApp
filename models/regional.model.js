@@ -5,13 +5,19 @@ let RegionalSchema = new Schema({
     code: {
         type: Number
     },
-    parent_code: {
+    province_code: {
         type: Schema.Types.ObjectId,
         ref: 'Province'
     },
     name: {
         type: String
-    }
+    },
+    subdistricts: [
+        {
+            type: Schema.Types.ObjectId
+            ref: 'Subdistrict'
+        }
+    ]
 },
 {
     timestamps: true

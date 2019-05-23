@@ -1,5 +1,8 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var fs = require('fs')
+const multer = require('multer')
+const csv = require('fast-csv')
 
 // Import endpoints
 var product = require('./routes/product.route');
@@ -11,6 +14,7 @@ var prodInvDet = require('./routes/productInvestDetail.route')
 var userInv = require('./routes/userInvestor.route')
 var investDet = require('./routes/investorDetail.route')
 var payDet = require('./routes/paymentDetail.route')
+var prov = require('./routes/province.route')
 var app = express();
 
 // Set up mongoose connection
@@ -43,6 +47,7 @@ app.use('/api/v1', prodInvDet)
 app.use('/api/v1', userInv)
 app.use('/api/v1', investDet)
 app.use('/api/v1', payDet)
+app.use('/api/v1', prov)
 
 var port = 3001;
 

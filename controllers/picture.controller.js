@@ -7,9 +7,6 @@ cloudinary.config({
     cloud_name: 'dbde9il12',
     api_key: '216564982351887',
     api_secret: 'ZIpvIymcQP6DhcklBX32Zpamdb0'
-    // cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-    // api_key: process.env.CLOUDINARY_API_KEY,
-    // api_secret: process.env.CLOUDINARY_API_SECRET
 })
 
 module.exports = {

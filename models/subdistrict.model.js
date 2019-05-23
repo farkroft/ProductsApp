@@ -5,7 +5,7 @@ let SubdistrictSchema = new Schema({
     code: {
         type: Number
     },
-    parent_code: {
+    regional_code: {
         type: Schema.Types.ObjectId,
         ref: 'Regional'
     },

@@ -7,10 +7,16 @@ let ProvinceSchema = new Schema({
     },
     parent_code: {
         type: Number
-    }
+    },
     name: {
         type: String
-    }
+    },
+    regionals: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Regional'
+        }
+    ]
 },
 {
     timestamps: true
